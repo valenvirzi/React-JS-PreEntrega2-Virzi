@@ -1,0 +1,22 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: clamp(3rem, 10dvh, 4rem);
+  padding: 0 1rem;
+  background: linear-gradient(270deg, rgb(25, 83, 140), rgb(53, 103, 164));
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+.nav {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

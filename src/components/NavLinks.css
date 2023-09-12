@@ -1,0 +1,16 @@
+.nav__links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.nav__links-item {
+}
+.nav__item-link {
+}
+.nav__item-link:hover {
+  color: rgb(255, 188, 66);
+}
+.header__nav-hr {
+  height: 2rem;
+}

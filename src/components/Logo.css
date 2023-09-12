@@ -1,0 +1,6 @@
+.nav__logo-a {
+  max-height: 100%;
+}
+.nav__logo-img {
+  height: clamp(3rem, 10dvh, 4rem);
+}

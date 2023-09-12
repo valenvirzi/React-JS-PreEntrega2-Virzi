@@ -1,0 +1,9 @@
+.item-container {
+  display: grid;
+  place-content: center;
+}
+.item-container__h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
