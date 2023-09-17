@@ -36,7 +36,7 @@ ins {
 
 .App {
   min-height: 100vh;
-  font-family: "Lato", sans-serif;
+  font-family: "Lato", "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
 }

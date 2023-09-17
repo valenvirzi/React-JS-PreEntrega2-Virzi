@@ -1,10 +1,17 @@
 import React from "react";
 import "./ItemListContainer.css";
+import ItemCard from "./ItemCard";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
+  // TODO: Hacer que la cantidad de items y su información salga del JSON de Productos
   return (
     <div className="item-container">
-      <h2 className="item-container__h2">{greeting}</h2>
+      <ItemCard/>
+      <ItemCard/>
+      <ItemCard/>
+      <ItemCard/>
+      <ItemCard/>
+      <ItemCard/>
     </div>
   );
 };
