@@ -1,76 +1,74 @@
 import React from "react";
 import "./ItemCard.css";
+import products from "../products.json";
 
-const ItemCard = () => {
+const ItemCard = ({
+  id,
+  img,
+  name,
+  colorName,
+  colorRGB,
+  storage,
+  price,
+  category,
+}) => {
   return (
     <div className="card">
       {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
-      <img
-        className="card__img"
-        src="https://samsungar.vtexassets.com/arquivos/ids/189184-800-auto?width=800&height=auto&aspect=true"
-        alt="Product IMG"
-      ></img>
+      <img className="card__img" src={img} alt="Product IMG"></img>
       <div className="card__info">
-        {/* TODO: Hacer que el nombre cambie según cada Objeto Producto */}
-        <h2 className="card-info__name">Samsung Galaxy Z Flip5</h2>
+        <h2 className="card-info__name">{name}</h2>
         {/* TODO: Hacer que el nombre del color cambié según el color elegido */}
         <p className="card-info__color">
-          Color: <span className="card-info__picked-color">Gris</span>
+          Color: <span className="card-info__picked-color">{colorName}</span>
         </p>
-        <form id="card__form" className="card-info__form">
-          {/* TODO: Convertir div en componente basado en Array del objeto según su propiedad (color) */}
+        <form id={`card__form${id}`} className="card-info__form">
           <div className="card-info__color-form">
-            <input
-              name="color"
-              form="card__form"
-              className="color-form__input"
-              id="gray"
-              type="radio"
-            ></input>
-            <label
-              form="card__form"
-              className="color-form__label"
-              for="gray"
-            ></label>
-            <input
-              name="color"
-              form="card__form"
-              className="color-form__input"
-              id="black"
-              type="radio"
-            ></input>
-            <label
-              form="card__form"
-              className="color-form__label"
-              for="black"
-            ></label>
+            {products[id].colorName.map((color, index) => (
+              <div className="card-info__color-form">
+                <input
+                  // value={`${}`}
+                  name="color"
+                  form={`card__form${id}`}
+                  className="color-form__input"
+                  id={`${products[id].colorName[index]}${id}`}
+                  type="radio"
+                ></input>
+                <label
+                  style={{
+                    backgroundColor: `rgb(${products[id].colorRGB[index]})`,
+                  }}
+                  form={`card__form${id}`}
+                  className="color-form__label"
+                  for={`${products[id].colorName[index]}${id}`}
+                ></label>
+              </div>
+            ))}
           </div>
-          {/* TODO: Convertir div en componente basado en Array del objeto según su propiedad (memoria) */}
           <div className="card-info__memory-form">
-            <input
-              name="memory"
-              form="card__form"
-              className="memory-form__input"
-              id="128gb"
-              type="radio"
-            ></input>
-            <label form="card__form" className="memory-form__label" for="128gb">
-              128GB
-            </label>
-            <input
-              name="memory"
-              form="card__form"
-              className="memory-form__input"
-              id="256gb"
-              type="radio"
-            ></input>
-            <label form="card__form" className="memory-form__label" for="256gb">
-              256GB
-            </label>
+            {products[id].storage.map((storage, index) => (
+              <div>
+                <input
+                  data-id={index}
+                  name="memory"
+                  form={`card__form${id}`}
+                  className="memory-form__input"
+                  id={`${storage}gb${id}`}
+                  type="radio"
+                ></input>
+                <label
+                  form={`card__form${id}`}
+                  className="memory-form__label"
+                  for={`${storage}gb${id}`}
+                >
+                  {storage}GB
+                </label>
+              </div>
+            ))}
           </div>
         </form>
         {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
-        <span className="card-info__price">U$D 1.400</span>
+        <span className="card-info__price">U$D {price}</span>
         {/* TODO: Convertir el botón Ver Detalle en Link al respectivo producto */}
         <button className="card-info__btn detail-btn" type="button">
           <p className="detail-btn__p">Ver Detalle</p>
@@ -79,16 +77,28 @@ const ItemCard = () => {
         <div className="card-info__cart-div">
           <div className="cart-div__counter-div">
             <button className="cart-div__counter-btn" type="button">
-              <img className="counter-btn__img" src="https://www.svgrepo.com/show/532960/minus.svg" alt="minus"></img>
+              <img
+                className="counter-btn__img"
+                src="https://www.svgrepo.com/show/532960/minus.svg"
+                alt="minus"
+              ></img>
             </button>
             <span className="counter-div__number">3</span>
             <button className="cart-div__counter-btn" type="button">
-              <img className="counter-btn__img" src="https://www.svgrepo.com/show/532994/plus.svg" alt="plus"></img>
+              <img
+                className="counter-btn__img"
+                src="https://www.svgrepo.com/show/532994/plus.svg"
+                alt="plus"
+              ></img>
             </button>
           </div>
           {/* TODO: Lograr que el botón añada el respectivo producto (y la cantidad elegida del mismo) al Array de confirmación de Carrito */}
           <button className="cart-div__add-btn" type="button">
-            <img className="add-btn__img" src="https://www.svgrepo.com/show/533042/cart-plus.svg" alt="Add Cart SVG"></img>
+            <img
+              className="add-btn__img"
+              src="https://www.svgrepo.com/show/533042/cart-plus.svg"
+              alt="Add Cart SVG"
+            ></img>
           </button>
         </div>
       </div>

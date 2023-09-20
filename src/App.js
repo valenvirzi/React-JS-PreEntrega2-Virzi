@@ -10,16 +10,15 @@ function App() {
     <div className="App">
       <NavBar />
       <div className="spacingBar"></div>
-    <Routes>
-      {/* <Route exact path="/" element={}/>
-      <Route exact path="" element={}/> */}
-      <Route exact path="/products" element={<ItemListContainer greeting="Bienvenido a la mejor tienda de celulares" />}/>
-      <Route exact path="/products/phones" element={<ItemListContainer greeting="Bienvenido a la mejor tienda de celulares" />}/>
-      <Route exact path="/products/tablets" element={<ItemListContainer greeting="Bienvenido a la mejor tienda de celulares" />}/>
-      <Route exact path="/products/notebooks" element={<ItemListContainer greeting="Bienvenido a la mejor tienda de celulares" />}/>
-      <Route exact path="/cart" element={<CartDisplay/>}/>
-    </Routes>
-    <ItemListContainer/>
+      <Routes>
+        {/* <Route exact path="/" element={}/>
+        <Route exact path="" element={}/> */}
+        <Route exact path="/" element={<ItemListContainer/>}/>
+        <Route exact path="/phones" element={<ItemListContainer/>}/>
+        <Route exact path="/tablets" element={<ItemListContainer/>}/>
+        <Route exact path="/smartwatch" element={<ItemListContainer/>}/>
+        <Route exact path="/cart" element={<CartDisplay/>}/>
+      </Routes>
     </div>
     </BrowserRouter>
   );

@@ -1,0 +1,114 @@
+[
+  {
+    "id": 0,
+    "name": "Samsung Galaxy Z Flip5",
+    "company": "Samsung",
+    "category": "phone",
+    "colorName": ["Cream", "Graphite", "Lavender", "Mint", "Blue"],
+    "colorRGB": [
+      "225, 222, 196",
+      "0, 0, 0",
+      "156, 43, 211",
+      "60, 86, 82",
+      "35, 88, 168"
+    ],
+    "img": [
+      "https://samsungar.vtexassets.com/arquivos/ids/189107-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/189118-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/189129-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/189140-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/189184-800-auto?width=800&height=auto&aspect=true"
+    ],
+    "storage": [256, 512],
+    "price": [759, 810]
+  },
+  {
+    "id": 1,
+    "name": "Samsung Galaxy S23 Ultra",
+    "company": "Samsung",
+    "category": "phone",
+    "colorName": ["Cream", "Black", "Lavender", "Mint"],
+    "colorRGB": ["225, 222, 196", "0, 0, 0", "156, 43, 211", "60, 86, 82"],
+    "img": [
+      "https://samsungar.vtexassets.com/arquivos/ids/191397-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/191435-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/191454-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/191416-800-auto?width=800&height=auto&aspect=true"
+    ],
+    "storage": [256, 512, 1024],
+    "price": [1059, 1129, 1179]
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy A24",
+    "company": "Samsung",
+    "category": "phone",
+    "colorName": ["Black", "Green", "Silver"],
+    "colorRGB": ["0, 0, 0", "193, 212, 167", "165, 168, 173"],
+    "img": [
+      "https://samsungar.vtexassets.com/arquivos/ids/191242-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/187489-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/191252-800-auto?width=800&height=auto&aspect=true"
+    ],
+    "storage": [128],
+    "price": [239]
+  },
+  {
+    "id": 3,
+    "name": "Samsung Galaxy Tab A8",
+    "company": "Samsung",
+    "category": "tablet",
+    "colorName": ["Silver", "Black", "Pink"],
+    "colorRGB": ["165, 168, 173", "0, 0, 0", "206, 98, 121"],
+    "img": [
+      "https://samsungar.vtexassets.com/arquivos/ids/191863-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/191874-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/191884-800-auto?width=800&height=auto&aspect=true"
+    ],
+    "storage": [64],
+    "price": [259]
+  },
+  {
+    "id": 4,
+    "name": "Samsung Galaxy Tab S9",
+    "company": "Samsung",
+    "category": "tablet",
+    "colorName": ["Black", "Cream"],
+    "colorRGB": ["0, 0, 0", "225, 222, 196"],
+    "img": [
+      "https://samsungar.vtexassets.com/arquivos/ids/189199-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/189261-800-auto?width=800&height=auto&aspect=true"
+    ],
+    "storage": [128, 256],
+    "price": [989, 1089]
+  },
+  {
+    "id": 5,
+    "name": "Samsung Galaxy Watch5",
+    "company": "Samsung",
+    "category": "smartwatch",
+    "colorName": ["Black", "Sapphire", "Silver"],
+    "colorRGB": ["0, 0, 0", "37, 150, 190", "165, 168, 173"],
+    "img": [
+      "https://samsungar.vtexassets.com/arquivos/ids/184157-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/184163-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/184169-800-auto?width=800&height=auto&aspect=true"
+    ],
+    "storage": [],
+    "price": [239]
+  },
+  {
+    "id": 6,
+    "name": "Samsung Galaxy Watch4 Classic",
+    "company": "Samsung",
+    "category": "smartwatch",
+    "colorName": ["Black", "Silver"],
+    "colorRGB": ["0, 0, 0", "165, 168, 173"],
+    "img": [
+      "https://samsungar.vtexassets.com/arquivos/ids/173345-800-auto?width=800&height=auto&aspect=true",
+      "https://samsungar.vtexassets.com/arquivos/ids/173352-800-auto?width=800&height=auto&aspect=true"
+    ],
+    "storage": [],
+    "price": [289]
+  }
+]
