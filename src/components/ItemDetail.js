@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./ItemCard.css";
+import "./ItemDetail.css";
 import products from "../products.json";
-import { Link } from "react-router-dom";
 
-const ItemCard = ({
+const ItemDetail = ({
   id,
   img,
   name,
@@ -14,23 +13,23 @@ const ItemCard = ({
   category,
 }) => {
   return (
-    <div className="card">
+    <div className="detail">
       {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
-      <img className="card__img" src={img} alt="Product IMG"></img>
-      <div className="card__info">
-        <h2 className="card-info__name">{name}</h2>
+      <img className="detail__img" src={img} alt="Product IMG"></img>
+      <div className="detail__info">
+        <h2 className="detail-info__name">{name}</h2>
         {/* TODO: Hacer que el nombre del color cambié según el color elegido */}
-        <p className="card-info__color">
-          Color: <span className="card-info__picked-color">{colorName}</span>
+        <p className="detail-info__color">
+          Color: <span className="detail-info__picked-color">{colorName}</span>
         </p>
-        <form id={`card__form${id}`} className="card-info__form">
-          <div className="card-info__color-form">
+        <form id={`detail__form${id}`} className="detail-info__form">
+          <div className="detail-info__color-form">
             {products[id].colorName.map((color, index) => (
-              <div className="card-info__color-form">
+              <div className="detail-info__color-form">
                 <input
                   value={`${colorName[index]}`}
                   name="color"
-                  form={`card__form${id}`}
+                  form={`detail__form${id}`}
                   className="color-form__input"
                   id={`${products[id].colorName[index]}${id}`}
                   type="radio"
@@ -39,26 +38,26 @@ const ItemCard = ({
                   style={{
                     backgroundColor: `rgb(${products[id].colorRGB[index]})`,
                   }}
-                  form={`card__form${id}`}
+                  form={`detail__form${id}`}
                   className="color-form__label"
                   for={`${products[id].colorName[index]}${id}`}
                 ></label>
               </div>
             ))}
           </div>
-          <div className="card-info__memory-form">
+          <div className="detail-info__memory-form">
             {products[id].storage.map((storage, index) => (
               <div>
                 <input
                   data-id={index}
                   name="memory"
-                  form={`card__form${id}`}
+                  form={`detail__form${id}`}
                   className="memory-form__input"
                   id={`${storage}gb${id}`}
                   type="radio"
                 ></input>
                 <label
-                  form={`card__form${id}`}
+                  form={`detail__form${id}`}
                   className="memory-form__label"
                   for={`${storage}gb${id}`}
                 >
@@ -69,13 +68,9 @@ const ItemCard = ({
           </div>
         </form>
         {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
-        <span className="card-info__price">U$D {price}</span>
-        {/* TODO: Convertir el botón Ver Detalle en Link al respectivo producto */}
-        <button className="card-info__btn detail-btn" type="button">
-          <p className="detail-btn__p">Ver Detalle</p>
-        </button>
+        <span className="detail-info__price">U$D {price}</span>
         {/* TODO: Hacer un contador con los siguientes botones */}
-        <div className="card-info__cart-div">
+        <div className="detail-info__cart-div">
           <div className="cart-div__counter-div">
             <button className="cart-div__counter-btn" type="button">
               <img
@@ -107,4 +102,4 @@ const ItemCard = ({
   );
 };
 
-export default ItemCard;
+export default ItemDetail;

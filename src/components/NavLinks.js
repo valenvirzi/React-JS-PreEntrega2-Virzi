@@ -6,23 +6,27 @@ const NavLinks = () => {
   return (
     <ul className="nav__links">
       <li className="nav__links-item">
-        <Link to="/" className="nav__item-link">Inicio</Link>
-      </li>
-      {/* <hr class="header__nav-hr"></hr>
-      <li className="nav__links-item">
-        <Link to="/products" className="nav__item-link">Productos</Link>
-      </li> */}
-      <hr class="header__nav-hr"></hr>
-      <li className="nav__links-item">
-        <Link to="/phones" className="nav__item-link">Celulares</Link>
+        <Link to="/" className="nav__item-link">
+          Inicio
+        </Link>
       </li>
       <hr class="header__nav-hr"></hr>
       <li className="nav__links-item">
-        <Link to="/tablets" className="nav__item-link">Tablets</Link>
+        <Link to="/phones" className="nav__item-link">
+          Celulares
+        </Link>
       </li>
       <hr class="header__nav-hr"></hr>
       <li className="nav__links-item">
-        <Link to="/smartwatch" className="nav__item-link">Smartwatch</Link>
+        <Link to="/tablets" className="nav__item-link">
+          Tablets
+        </Link>
+      </li>
+      <hr class="header__nav-hr"></hr>
+      <li className="nav__links-item">
+        <Link to="/smartwatch" className="nav__item-link">
+          Smartwatch
+        </Link>
       </li>
     </ul>
   );
