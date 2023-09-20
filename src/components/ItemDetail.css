@@ -85,18 +85,6 @@
     font-weight: 800;
     color: rgb(0, 41, 107);
   }
-  .detail-info__btn {
-    font-size: 1.1rem;
-    font-weight: 600;
-    background-color: rgb(253, 197, 0);
-    border: 1px solid rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-    padding: 0.65rem 0.25rem;
-  }
-  .detail-info__btn:hover {
-    background-color: rgb(255, 213, 0);
-  }
   .detail-info__cart-div {
     display: flex;
     align-items: stretch;
