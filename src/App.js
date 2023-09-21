@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<ItemListContainer/>}/>
         <Route exact path="/category/:id" element={<ItemListContainer/>}/>
-        {/* <Route path={"/item/:id"} element={<ItemDetailContainer/>} /> */}
+        <Route path={"/item/:id"} element={<ItemDetailContainer/>} />
         <Route exact path="/cart" element={<CartDisplay/>}/>
       </Routes>
     </div>
