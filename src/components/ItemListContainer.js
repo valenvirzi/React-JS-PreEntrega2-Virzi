@@ -1,25 +1,35 @@
 import React from "react";
-import "./ItemListContainer.css";
-import ItemCard from "./ItemCard";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import products from "../products.json";
+import ItemList from "./ItemList";
+import "./ItemListContainer.css";
 
 const ItemListContainer = () => {
-  // TODO: Hacer que la cantidad de items y su información salga del JSON de Productos
+  const [item, setItem] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(
+              id ? products.filter((item) => item.category === id) : products
+            );
+          }, 1500);
+        });
+        setItem(data);
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    };
+    fetchData();
+  }, [id]);
 
   return (
-    <div className="item-container">
-      {products.map((item) => (
-        <ItemCard
-          id={item.id}
-          img={item.img}
-          name={item.name}
-          colorName={item.colorName[0]}
-          colorRGB={item.colorRGB[0]}
-          storage={item.storage[0]}
-          price={item.price[0]}
-          category={item.category}
-        />
-      ))}
+    <div>
+      <ItemList list={item} />
     </div>
   );
 };

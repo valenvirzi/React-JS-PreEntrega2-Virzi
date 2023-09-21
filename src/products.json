@@ -3,7 +3,7 @@
     "id": 0,
     "name": "Samsung Galaxy Z Flip5",
     "company": "Samsung",
-    "category": "phone",
+    "category": "phones",
     "colorName": ["Cream", "Graphite", "Lavender", "Mint", "Blue"],
     "colorRGB": [
       "225, 222, 196",
@@ -26,7 +26,7 @@
     "id": 1,
     "name": "Samsung Galaxy S23 Ultra",
     "company": "Samsung",
-    "category": "phone",
+    "category": "phones",
     "colorName": ["Cream", "Black", "Lavender", "Mint"],
     "colorRGB": ["225, 222, 196", "0, 0, 0", "156, 43, 211", "60, 86, 82"],
     "img": [
@@ -42,7 +42,7 @@
     "id": 2,
     "name": "Samsung Galaxy A24",
     "company": "Samsung",
-    "category": "phone",
+    "category": "phones",
     "colorName": ["Black", "Green", "Silver"],
     "colorRGB": ["0, 0, 0", "193, 212, 167", "165, 168, 173"],
     "img": [
@@ -57,7 +57,7 @@
     "id": 3,
     "name": "Samsung Galaxy Tab A8",
     "company": "Samsung",
-    "category": "tablet",
+    "category": "tablets",
     "colorName": ["Silver", "Black", "Pink"],
     "colorRGB": ["165, 168, 173", "0, 0, 0", "206, 98, 121"],
     "img": [
@@ -72,7 +72,7 @@
     "id": 4,
     "name": "Samsung Galaxy Tab S9",
     "company": "Samsung",
-    "category": "tablet",
+    "category": "tablets",
     "colorName": ["Black", "Cream"],
     "colorRGB": ["0, 0, 0", "225, 222, 196"],
     "img": [

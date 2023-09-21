@@ -12,19 +12,19 @@ const NavLinks = () => {
       </li>
       <hr class="header__nav-hr"></hr>
       <li className="nav__links-item">
-        <Link to="/phones" className="nav__item-link">
+        <Link to="/category/phones" className="nav__item-link">
           Celulares
         </Link>
       </li>
       <hr class="header__nav-hr"></hr>
       <li className="nav__links-item">
-        <Link to="/tablets" className="nav__item-link">
+        <Link to="/category/tablets" className="nav__item-link">
           Tablets
         </Link>
       </li>
       <hr class="header__nav-hr"></hr>
       <li className="nav__links-item">
-        <Link to="/smartwatch" className="nav__item-link">
+        <Link to="/category/smartwatch" className="nav__item-link">
           Smartwatch
         </Link>
       </li>
