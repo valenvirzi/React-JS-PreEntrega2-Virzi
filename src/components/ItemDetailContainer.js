@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
     <div>
       <ItemDetail
         id={item.id}
-        img={item.img}
+        img={item.img[0]}
         name={item.name}
         colorName={item.colorName[0]}
         colorRGB={item.colorRGB[0]}
