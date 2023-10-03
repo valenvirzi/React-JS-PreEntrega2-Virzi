@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "./ItemCard.css";
 import products from "../products.json";
 import { Link } from "react-router-dom";
