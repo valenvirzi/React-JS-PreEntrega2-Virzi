@@ -1,0 +1,81 @@
+.CartDisplay__row {
+  display: flex;
+  flex-direction: column;
+}
+.row__item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  padding: 0.75rem 0;
+  align-items: center;
+}
+.item__column {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.item__div-img {
+}
+.item__img {
+}
+.item__info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+}
+.item__name {
+  font-weight: 600;
+}
+.item__property {
+}
+.item__counter-btn {
+  padding: 0.3rem;
+  width: 2rem;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.counter-btn__img {
+  width: 100%;
+  opacity: 0.75;
+}
+.counter__amount {
+  font-size: 1.2rem;
+}
+.item__price {
+  font-size: 1.15rem;
+}
+.btn {
+  background-color: rgb(253, 197, 0);
+}
+.btn:hover {
+  background-color: rgb(255, 213, 0);
+}
+.item__delete-btn {
+  background-color: rgb(255, 92, 97, 0.45);
+  width: 3rem;
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.item__delete-btn:hover {
+  background-color: rgb(255, 92, 97, 0.75);
+}
+.item__delete-btn:active {
+  background-color: rgb(255, 92, 97, 0.95);
+}
+.delete-btn__img {
+  opacity: 0.5;
+  max-width: 100%;
+  max-height: 100%;
+  border: none;
+  border-radius: 50%;
+}

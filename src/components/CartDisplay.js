@@ -1,4 +1,6 @@
 import React from "react";
+import "./CartDisplay.css";
+import CartItem from "./CartItem";
 
 const CartDisplay = () => {
   return (
@@ -14,41 +16,35 @@ const CartDisplay = () => {
           </div>
           <hr className="row-division"></hr>
         </div>
-        <div className="CartDisplay__row">
-          <div className="row__item">
-            <div className="item__column">
-              <div className="item__div-img">
-                <img className="item__img" src="./product-1.png" alt="product-1"></img>
-              </div>
-              <div className="item__info">
-                <h3 className="item__name">Product Name</h3>
-                <p className="item__property">Memoria</p>
-                <p className="item__property">Color</p>
-                <p className="item__property">Empresa</p>
-              </div>
-            </div>
-            <div className="item__column">
-              <button className="item__counter-btn" type="button">
-                <img className="counter-btn__img" src="./" alt="minus"></img>
-              </button>
-              <span>3</span>
-              <button className="item__counter-btn" type="button">
-                <img className="counter-btn__img" src="./" alt="plus"></img>
-              </button>
-            </div>
-            <div className="item__column">
-              <span className="item__price">$120000</span>
-            </div>
-            <div className="item__column">
-              <span className="item__price">$360000</span>
-            </div>
-            <div className="item__column">
-              <button className="item__delete-btn" type="button">
-                <img className="delete-btn__img" src="./" alt="delete item"></img>
-              </button>
-            </div>
+        <div className="CartDisplay__list">
+          <CartItem />
+          <CartItem />
+          <CartItem />
+        </div>
+        <div className="CartDisplay__bottom">
+          <div className="bottom__total">
+            <h3 className="total__title">
+              Total: $<span className="total__price">720000</span>
+            </h3>
           </div>
-          <hr className="row-division"></hr>
+          <div className="bottom__buttons">
+            <button className="bottom-btn clear-btn" type="button">
+              <img
+                className="bottom-btn__img"
+                alt="trash-can"
+                src="./trash.svg"
+              ></img>
+              <p className="bottom-btn__p">Limpiar carrito</p>
+            </button>
+            <button className="bottom-btn confirm-btn" type="button">
+              <img
+                className="bottom-btn__img"
+                alt="cart-confirm"
+                src="./cart-check.svg"
+              ></img>
+              <p className="bottom-btn__p">Confirmar compra</p>
+            </button>
+          </div>
         </div>
       </div>
     </section>
