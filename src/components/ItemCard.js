@@ -28,14 +28,14 @@ product
           </p>
           <form id={`card__form${product.id}`} className="card-info__form">
             <div className="card-info__color-form">
-              {product.colorName.map((color, index) => (
+              {product.colorRGB.map((color, index) => (
                 <div key={color} className="card-info__color-form">
                   <input
-                    value={`${product.colorName[index]}`}
+                    value={`${product.colorRGB[index]}`}
                     name="color"
                     form={`card__form${product.id}`}
                     className="color-form__input"
-                    id={`${product.colorName[index]}${product.id}`}
+                    id={`${product.colorRGB[index]}${product.id}`}
                     type="radio"
                   ></input>
                   <label
@@ -44,7 +44,7 @@ product
                     }}
                     form={`card__form${product.id}`}
                     className="color-form__label"
-                    for={`${product.colorName[index]}${product.id}`}
+                    for={`${product.colorRGB[index]}${product.id}`}
                   ></label>
                 </div>
               ))}

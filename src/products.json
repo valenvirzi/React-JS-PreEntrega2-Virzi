@@ -4,7 +4,7 @@
     "name": "Samsung Galaxy Z Flip5",
     "company": "Samsung",
     "category": "phones",
-    "colorName": ["Cream", "Graphite", "Lavender", "Mint", "Blue"],
+    "stock": [[2,3], [4,3], [3,2], [5,6], [7,4]],
     "colorRGB": [
       "225, 222, 196",
       "0, 0, 0",
@@ -27,7 +27,7 @@
     "name": "Samsung Galaxy S23 Ultra",
     "company": "Samsung",
     "category": "phones",
-    "colorName": ["Cream", "Black", "Lavender", "Mint"],
+    "stock": [[4,3,5], [3,2,7], [5,6,8], [7,4,3]],
     "colorRGB": ["225, 222, 196", "0, 0, 0", "156, 43, 211", "60, 86, 82"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/191397-800-auto?width=800&height=auto&aspect=true",
@@ -43,7 +43,7 @@
     "name": "Samsung Galaxy A24",
     "company": "Samsung",
     "category": "phones",
-    "colorName": ["Black", "Green", "Silver"],
+    "stock": [[2], [6], [4]],
     "colorRGB": ["0, 0, 0", "193, 212, 167", "165, 168, 173"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/191242-800-auto?width=800&height=auto&aspect=true",
@@ -58,7 +58,7 @@
     "name": "Samsung Galaxy Tab A8",
     "company": "Samsung",
     "category": "tablets",
-    "colorName": ["Silver", "Black", "Pink"],
+    "stock": [[5], [3], [4]],
     "colorRGB": ["165, 168, 173", "0, 0, 0", "206, 98, 121"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/191863-800-auto?width=800&height=auto&aspect=true",
@@ -73,7 +73,7 @@
     "name": "Samsung Galaxy Tab S9",
     "company": "Samsung",
     "category": "tablets",
-    "colorName": ["Black", "Cream"],
+    "stock": [[3,2], [5,6]],
     "colorRGB": ["0, 0, 0", "225, 222, 196"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/189199-800-auto?width=800&height=auto&aspect=true",
@@ -87,7 +87,7 @@
     "name": "Samsung Galaxy Watch5",
     "company": "Samsung",
     "category": "smartwatch",
-    "colorName": ["Black", "Sapphire", "Silver"],
+    "stock": [[2], [6], [4]],
     "colorRGB": ["0, 0, 0", "37, 150, 190", "165, 168, 173"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/184157-800-auto?width=800&height=auto&aspect=true",
@@ -102,7 +102,7 @@
     "name": "Samsung Galaxy Watch4 Classic",
     "company": "Samsung",
     "category": "smartwatch",
-    "colorName": ["Black", "Silver"],
+    "stock": [[5], [6]],
     "colorRGB": ["0, 0, 0", "165, 168, 173"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/173345-800-auto?width=800&height=auto&aspect=true",
