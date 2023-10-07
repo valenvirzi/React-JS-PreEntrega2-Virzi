@@ -83,6 +83,7 @@
   color: rgb(0, 41, 107);
 }
 .card-info__btn {
+  width: 100%;
   font-size: 1.1rem;
   font-weight: 600;
   background-color: rgb(253, 197, 0);

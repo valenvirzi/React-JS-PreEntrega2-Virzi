@@ -14,7 +14,7 @@ const ItemCard = ({
   category,
 }) => {
   return (
-    <Link to={`/item/${id}`}>
+
       <div className="card">
         {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
         <img className="card__img" src={img} alt="Product IMG"></img>
@@ -27,7 +27,7 @@ const ItemCard = ({
           <form id={`card__form${id}`} className="card-info__form">
             <div className="card-info__color-form">
               {products[id].colorName.map((color, index) => (
-                <div className="card-info__color-form">
+                <div key={color} className="card-info__color-form">
                   <input
                     value={`${colorName[index]}`}
                     name="color"
@@ -49,7 +49,7 @@ const ItemCard = ({
             </div>
             <div className="card-info__memory-form">
               {products[id].storage.map((storage, index) => (
-                <div>
+                <div key={storage}>
                   <input
                     data-id={index}
                     name="memory"
@@ -72,9 +72,11 @@ const ItemCard = ({
           {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
           <span className="card-info__price">U$D {price}</span>
           {/* TODO: Convertir el botón Ver Detalle en Link al respectivo producto */}
+          <Link to={`/item/${id}`}>
           <button className="card-info__btn detail-btn" type="button">
             <p className="detail-btn__p">Ver Detalle</p>
           </button>
+          </Link>
           {/* TODO: Hacer un contador con los siguientes botones */}
           <div className="card-info__cart-div">
             <div className="cart-div__counter-div">
@@ -105,7 +107,7 @@ const ItemCard = ({
           </div>
         </div>
       </div>
-    </Link>
+
   );
 };
 
