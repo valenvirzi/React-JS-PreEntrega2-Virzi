@@ -6,8 +6,8 @@ const ItemListContainer = ({ list }) => {
   return (
     <div className="item-container">
       {list.map((item) => (
-        <div key={item.id}>
         <ItemCard
+          key={item.id}
           id={item.id}
           img={item.img}
           name={item.name}
@@ -17,7 +17,6 @@ const ItemListContainer = ({ list }) => {
           price={item.price[0]}
           category={item.category}
         />
-        </div>
       ))}
     </div>
   );

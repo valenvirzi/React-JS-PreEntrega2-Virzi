@@ -1,4 +1,4 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import "./ItemCard.css";
 import products from "../products.json";
 import { Link } from "react-router-dom";
@@ -13,6 +13,16 @@ const ItemCard = ({
   price,
   category,
 }) => {
+
+  const [counter, setCounter] = useState(0);
+
+  const increment = ()=> {
+    setCounter(counter +1)
+  }
+  const decrement = ()=> {
+    setCounter(counter -1)
+  }
+
   return (
 
       <div className="card">
@@ -71,24 +81,22 @@ const ItemCard = ({
           </form>
           {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
           <span className="card-info__price">U$D {price}</span>
-          {/* TODO: Convertir el botón Ver Detalle en Link al respectivo producto */}
           <Link to={`/item/${id}`}>
           <button className="card-info__btn detail-btn" type="button">
             <p className="detail-btn__p">Ver Detalle</p>
           </button>
           </Link>
-          {/* TODO: Hacer un contador con los siguientes botones */}
           <div className="card-info__cart-div">
             <div className="cart-div__counter-div">
-              <button className="cart-div__counter-btn" type="button">
+              <button onClick={decrement} className="cart-div__counter-btn" type="button">
                 <img
                   className="counter-btn__img"
                   src="https://www.svgrepo.com/show/532960/minus.svg"
                   alt="minus"
                 ></img>
               </button>
-              <span className="counter-div__number">3</span>
-              <button className="cart-div__counter-btn" type="button">
+              <span className="counter-div__number">{counter}</span>
+              <button onClick={increment} className="cart-div__counter-btn" type="button">
                 <img
                   className="counter-btn__img"
                   src="https://www.svgrepo.com/show/532994/plus.svg"
