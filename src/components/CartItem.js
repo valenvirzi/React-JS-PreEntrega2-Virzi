@@ -23,14 +23,14 @@ const CartItem = () => {
         <div className="item__column">
           <button className="item__counter-btn btn" type="button">
             <img
-              className="counter-btn__img"
+              className="cart-item-counter-btn__img"
               src="./minus.svg"
               alt="minus"
             ></img>
           </button>
           <span className="counter__amount">3</span>
           <button className="item__counter-btn btn" type="button">
-            <img className="counter-btn__img" src="./plus.svg" alt="plus"></img>
+            <img className="cart-item-counter-btn__img" src="./plus.svg" alt="plus"></img>
           </button>
         </div>
         <div className="item__column">

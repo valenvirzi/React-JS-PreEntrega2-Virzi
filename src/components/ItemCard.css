@@ -95,36 +95,29 @@
 }
 .card-info__cart-div {
   display: flex;
-  align-items: stretch;
   justify-content: space-between;
   column-gap: 0.5rem;
-  width: 100%;
-  height: auto;
 }
 .cart-div__counter-div {
-  height: auto;
-  width: 2fr;
   display: flex;
-  align-items: stretch;
+  justify-content: space-between;
   border: none;
   border-radius: 5px;
   background-color: rgb(253, 197, 0);
 }
 .cart-div__counter-btn {
-  height: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: transparent;
   border: none;
   border-radius: 5px;
-  overflow: hidden;
 }
 .cart-div__counter-btn:hover {
   background-color: rgb(255, 213, 0);
 }
 .counter-btn__img {
-  width: 50%;
+  width: 65%;
 }
 .counter-div__number {
   align-self: center;
@@ -133,12 +126,10 @@
   padding: 0.45rem;
 }
 .cart-div__add-btn {
-  height: 100%;
-  padding: 0.35rem 0;
-  width: 1fr;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.35rem 0;
   background-color: transparent;
   border: none;
   border-radius: 5px;
@@ -149,7 +140,7 @@
   background-color: rgb(255, 213, 0);
 }
 .add-btn__img {
-  width: 45%;
+  width: 60%;
 }
 
 label {

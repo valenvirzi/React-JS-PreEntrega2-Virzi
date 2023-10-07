@@ -71,27 +71,27 @@ const ItemDetail = ({
         <span className="detail-info__price">U$D {price}</span>
         {/* TODO: Hacer un contador con los siguientes botones */}
         <div className="detail-info__cart-div">
-          <div className="cart-div__counter-div">
-            <button className="cart-div__counter-btn" type="button">
+          <div className="d-cart-div__counter-div">
+            <button className="d-cart-div__counter-btn" type="button">
               <img
-                className="counter-btn__img"
+                className="d-counter-btn__img"
                 src="https://www.svgrepo.com/show/532960/minus.svg"
                 alt="minus"
               ></img>
             </button>
-            <span className="counter-div__number">3</span>
-            <button className="cart-div__counter-btn" type="button">
+            <span className="d-counter-div__number">3</span>
+            <button className="d-cart-div__counter-btn" type="button">
               <img
-                className="counter-btn__img"
+                className="d-counter-btn__img"
                 src="https://www.svgrepo.com/show/532994/plus.svg"
                 alt="plus"
               ></img>
             </button>
           </div>
           {/* TODO: Lograr que el botón añada el respectivo producto (y la cantidad elegida del mismo) al Array de confirmación de Carrito */}
-          <button className="cart-div__add-btn" type="button">
+          <button className="d-cart-div__add-btn" type="button">
             <img
-              className="add-btn__img"
+              className="d-add-btn__img"
               src="https://www.svgrepo.com/show/533042/cart-plus.svg"
               alt="Add Cart SVG"
             ></img>
