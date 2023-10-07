@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import "./ItemCard.css";
-import products from "../products.json";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({
-  id,
-  img,
-  name,
-  colorName,
-  colorRGB,
-  storage,
-  price,
-  category,
+product
 }) => {
 
   const [counter, setCounter] = useState(0);
@@ -27,51 +19,51 @@ const ItemCard = ({
 
       <div className="card">
         {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
-        <img className="card__img" src={img} alt="Product IMG"></img>
+        <img className="card__img" src={product.img[0]} alt="Product IMG"></img>
         <div className="card__info">
-          <h2 className="card-info__name">{name}</h2>
+          <h2 className="card-info__name">{product.name}</h2>
           {/* TODO: Hacer que el nombre del color cambié según el color elegido */}
           <p className="card-info__color">
-            Color: <span className="card-info__picked-color">{colorName}</span>
+            Stock: <span className="card-info__picked-color">Stock</span>
           </p>
-          <form id={`card__form${id}`} className="card-info__form">
+          <form id={`card__form${product.id}`} className="card-info__form">
             <div className="card-info__color-form">
-              {products[id].colorName.map((color, index) => (
+              {product.colorName.map((color, index) => (
                 <div key={color} className="card-info__color-form">
                   <input
-                    value={`${colorName[index]}`}
+                    value={`${product.colorName[index]}`}
                     name="color"
-                    form={`card__form${id}`}
+                    form={`card__form${product.id}`}
                     className="color-form__input"
-                    id={`${products[id].colorName[index]}${id}`}
+                    id={`${product.colorName[index]}${product.id}`}
                     type="radio"
                   ></input>
                   <label
                     style={{
-                      backgroundColor: `rgb(${products[id].colorRGB[index]})`,
+                      backgroundColor: `rgb(${product.colorRGB[index]})`,
                     }}
-                    form={`card__form${id}`}
+                    form={`card__form${product.id}`}
                     className="color-form__label"
-                    for={`${products[id].colorName[index]}${id}`}
+                    for={`${product.colorName[index]}${product.id}`}
                   ></label>
                 </div>
               ))}
             </div>
             <div className="card-info__memory-form">
-              {products[id].storage.map((storage, index) => (
-                <div key={storage}>
+              {product.storage.map((storage, index) => (
+                <div key={storage+index}>
                   <input
                     data-id={index}
                     name="memory"
-                    form={`card__form${id}`}
+                    form={`card__form${product.id}`}
                     className="memory-form__input"
-                    id={`${storage}gb${id}`}
+                    id={`${storage+index}gb${product.id}`}
                     type="radio"
                   ></input>
                   <label
-                    form={`card__form${id}`}
+                    form={`card__form${product.id}`}
                     className="memory-form__label"
-                    for={`${storage}gb${id}`}
+                    for={`${storage+index}gb${product.id}`}
                   >
                     {storage}GB
                   </label>
@@ -80,8 +72,8 @@ const ItemCard = ({
             </div>
           </form>
           {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
-          <span className="card-info__price">U$D {price}</span>
-          <Link to={`/item/${id}`}>
+          <span className="card-info__price">U$D {product.price[0]}</span>
+          <Link to={`/item/${product.id}`}>
           <button className="card-info__btn detail-btn" type="button">
             <p className="detail-btn__p">Ver Detalle</p>
           </button>
