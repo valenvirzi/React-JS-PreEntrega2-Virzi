@@ -3,17 +3,32 @@ import "./ItemCard.css";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({ product }) => {
-  //TODO: Solucionar el tema de los useState(s) y lograr que se muestren el Stocky el Precio en base a las características seleccionadas
+  //TODO: Solucionar el tema de los useState(s) y lograr que se muestren el Stock y el Precio en base a las características seleccionadas
   const [counter, setCounter] = useState(0);
-  const [colorIndex, setColorIndex] = useState(0);
-  const [storageIndex, setStorageIndex] = useState(0);
-  const [stock, setStock] = useState(null);
+  const [modeIndex, setModelIndex] = useState({ color: 0, storage: 0 });
+  //const [storageIndex, setStorageIndex] = useState(0);
+  const [stock, setStock] = useState(0);
+
+  function getNestedStockValue(product, modeIndex) {
+    if (
+      product &&
+      product.stock &&
+      Array.isArray(product.stock[modeIndex.color]) &&
+      Array.isArray(product.stock[modeIndex.storage])
+    ) {
+      return product.stock[modeIndex.color][modeIndex.storage];
+    }
+    // Valor por Default
+    return 0;
+  }
 
   useEffect(() => {
-    if (product.stock[colorIndex] && product.stock[colorIndex][storageIndex]) {
-      setStock(product.stock[colorIndex][storageIndex]);
-    }
-  }, [colorIndex, storageIndex, product.stock]);
+    setStock(getNestedStockValue(product, modeIndex));
+    ///TODO: en lugar de llamar al cambio de stock ya cambiando el stock (linea 66) llamar al useEffect cuando un evento ocurra (en tu caso al seleccionar un color o una etiqueta storage).
+    // el evento reemplaza a "modelIndex" que dispara al useEffect porq ya estoy haciendo un setStock al pedo porq es el trabajo del useEffect
+  }, [modeIndex, product]);
+
+  useEffect(() => {}, [stock]);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -47,9 +62,11 @@ const ItemCard = ({ product }) => {
                   type="radio"
                 ></input>
                 <label
-                  onClick={(index) => {
-                    setColorIndex(index);
-                    console.log(product);
+                  onClick={(event) => {
+                    setModelIndex((prevModel) => {
+                      console.log(event);
+                      return { ...prevModel, color: index };
+                    });
                   }}
                   style={{
                     backgroundColor: `rgb(${product.colorRGB[index]})`,
@@ -63,22 +80,24 @@ const ItemCard = ({ product }) => {
           </div>
           <div className="card-info__memory-form">
             {product.storage.map((storage, index) => (
-              <div key={storage + index}>
+              <div key={index}>
                 <input
                   data-id={index}
                   name="memory"
                   form={`card__form${product.id}`}
                   className="memory-form__input"
-                  id={`${storage + index}gb${product.id}`}
+                  id={`${index}gb${product.id}`}
                   type="radio"
                 ></input>
                 <label
-                  onClick={(index) => {
-                    setStorageIndex(index);
+                  onClick={(event) => {
+                    setModelIndex((prevModel) => {
+                      return { ...prevModel, storage: index };
+                    });
                   }}
                   form={`card__form${product.id}`}
                   className="memory-form__label"
-                  for={`${storage + index}gb${product.id}`}
+                  for={`${index}gb${product.id}`}
                 >
                   {storage}GB
                 </label>

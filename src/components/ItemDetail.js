@@ -1,65 +1,101 @@
-// import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ItemDetail.css";
 import products from "../products.json";
 
-const ItemDetail = ({
-  id,
-  img,
-  name,
-  colorName,
-  colorRGB,
-  storage,
-  price,
-  category,
-}) => {
+const ItemDetail = ({ product }) => {
+  //TODO: Solucionar el tema de los useState(s) y lograr que se muestren el Stock y el Precio en base a las características seleccionadas
+  const [counter, setCounter] = useState(0);
+  const [modeIndex, setModelIndex] = useState({ color: 0, storage: 0 });
+  const [stock, setStock] = useState(0);
+
+  function getNestedStockValue(product, modeIndex) {
+    if (
+      product &&
+      product.stock &&
+      Array.isArray(product.stock[modeIndex.color]) &&
+      Array.isArray(product.stock[modeIndex.storage])
+    ) {
+      return product.stock[modeIndex.color][modeIndex.storage];
+    }
+    // Valor por Default
+    return 0;
+  }
+
+  useEffect(() => {
+    setStock(getNestedStockValue(product, modeIndex));
+    ///TODO: en lugar de llamar al cambio de stock ya cambiando el stock (linea 66) llamar al useEffect cuando un evento ocurra (en tu caso al seleccionar un color o una etiqueta storage).
+    // el evento reemplaza a "modelIndex" que dispara al useEffect porq ya estoy haciendo un setStock al pedo porq es el trabajo del useEffect
+  }, [modeIndex, product]);
+
+  useEffect(() => {}, [stock]);
+
+  const increment = () => {
+    setCounter(counter + 1);
+  };
+  const decrement = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };
+
   return (
     <div className="detail">
       {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
-      <img className="detail__img" src={img} alt="Product IMG"></img>
+      <img className="detail__img" src={product.img[0]} alt="Product IMG"></img>
       <div className="detail__info">
-        <h2 className="detail-info__name">{name}</h2>
+        <h2 className="detail-info__name">{product.name}</h2>
         {/* TODO: Hacer que el nombre del color cambié según el color elegido */}
         <p className="detail-info__color">
-          Color: <span className="detail-info__picked-color">{colorName}</span>
+          Stock: <span className="detail-info__picked-color">{stock}</span>
         </p>
-        <form id={`detail__form${id}`} className="detail-info__form">
+        <form id={`detail__form${product.id}`} className="detail-info__form">
           <div className="detail-info__color-form">
-            {products[id].colorName.map((color, index) => (
-              <div className="detail-info__color-form">
+            {product.colorRGB.map((color, index) => (
+              <div key={color} className="detail-info__color-form">
                 <input
-                  value={`${colorName[index]}`}
+                  value={`${product.colorRGB[index]}`}
                   name="color"
-                  form={`detail__form${id}`}
+                  form={`detail__form${product.id}`}
                   className="color-form__input"
-                  id={`${products[id].colorName[index]}${id}`}
+                  id={`${product.colorRGB[index]}${product.id}`}
                   type="radio"
                 ></input>
                 <label
-                  style={{
-                    backgroundColor: `rgb(${products[id].colorRGB[index]})`,
+                  onClick={(event) => {
+                    setModelIndex((prevModel) => {
+                      return { ...prevModel, color: index };
+                    });
                   }}
-                  form={`detail__form${id}`}
+                  style={{
+                    backgroundColor: `rgb(${product.colorRGB[index]})`,
+                  }}
+                  form={`detail__form${product.id}`}
                   className="color-form__label"
-                  for={`${products[id].colorName[index]}${id}`}
+                  for={`${product.colorRGB[index]}${product.id}`}
                 ></label>
               </div>
             ))}
           </div>
           <div className="detail-info__memory-form">
-            {products[id].storage.map((storage, index) => (
-              <div>
+            {product.storage.map((storage, index) => (
+              <div key={index}>
                 <input
                   data-id={index}
                   name="memory"
-                  form={`detail__form${id}`}
+                  form={`detail__form${product.id}`}
                   className="memory-form__input"
-                  id={`${storage}gb${id}`}
+                  id={`${index}gb${product.id}`}
                   type="radio"
                 ></input>
                 <label
-                  form={`detail__form${id}`}
+                  onClick={(event) => {
+                    setModelIndex((prevModel) => {
+                      return { ...prevModel, storage: index };
+                    });
+                  }}
+                  form={`detail__form${product.id}`}
                   className="memory-form__label"
-                  for={`${storage}gb${id}`}
+                  for={`${index}gb${product.id}`}
                 >
                   {storage}GB
                 </label>
@@ -68,19 +104,26 @@ const ItemDetail = ({
           </div>
         </form>
         {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
-        <span className="detail-info__price">U$D {price}</span>
-        {/* TODO: Hacer un contador con los siguientes botones */}
+        <span className="detail-info__price">U$D {product.price[0]}</span>
         <div className="detail-info__cart-div">
           <div className="d-cart-div__counter-div">
-            <button className="d-cart-div__counter-btn" type="button">
+            <button
+              onClick={decrement}
+              className="d-cart-div__counter-btn"
+              type="button"
+            >
               <img
                 className="d-counter-btn__img"
                 src="https://www.svgrepo.com/show/532960/minus.svg"
                 alt="minus"
               ></img>
             </button>
-            <span className="d-counter-div__number">3</span>
-            <button className="d-cart-div__counter-btn" type="button">
+            <span className="d-counter-div__number">{counter}</span>
+            <button
+              onClick={increment}
+              className="d-cart-div__counter-btn"
+              type="button"
+            >
               <img
                 className="d-counter-btn__img"
                 src="https://www.svgrepo.com/show/532994/plus.svg"

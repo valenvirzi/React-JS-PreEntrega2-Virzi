@@ -4,7 +4,13 @@
     "name": "Samsung Galaxy Z Flip5",
     "company": "Samsung",
     "category": "phones",
-    "stock": [[2,3], [4,3], [3,2], [5,6], [7,4]],
+    "stock": [
+      [2, 3],
+      [4, 3],
+      [3, 2],
+      [5, 6],
+      [7, 4]
+    ],
     "colorRGB": [
       "225, 222, 196",
       "0, 0, 0",
@@ -27,7 +33,12 @@
     "name": "Samsung Galaxy S23 Ultra",
     "company": "Samsung",
     "category": "phones",
-    "stock": [[4,3,5], [3,2,7], [5,6,8], [7,4,3]],
+    "stock": [
+      [4, 3, 5],
+      [3, 2, 7],
+      [5, 6, 8],
+      [7, 4, 3]
+    ],
     "colorRGB": ["225, 222, 196", "0, 0, 0", "156, 43, 211", "60, 86, 82"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/191397-800-auto?width=800&height=auto&aspect=true",
@@ -73,7 +84,10 @@
     "name": "Samsung Galaxy Tab S9",
     "company": "Samsung",
     "category": "tablets",
-    "stock": [[3,2], [5,6]],
+    "stock": [
+      [3, 2],
+      [5, 6]
+    ],
     "colorRGB": ["0, 0, 0", "225, 222, 196"],
     "img": [
       "https://samsungar.vtexassets.com/arquivos/ids/189199-800-auto?width=800&height=auto&aspect=true",

@@ -28,16 +28,7 @@ const ItemDetailContainer = () => {
       {isLoading ? (
         <p>Cargando...</p>
       ) : item ? (
-        <ItemDetail
-          id={item.id}
-          img={item.img[0]}
-          name={item.name}
-          colorName={item.colorName[0]}
-          colorRGB={item.colorRGB[0]}
-          storage={item.storage[0]}
-          price={item.price[0]}
-          category={item.category}
-        />
+        <ItemDetail product={item}/>
       ) : (
         <p>Producto no encontrado</p>
       )}
