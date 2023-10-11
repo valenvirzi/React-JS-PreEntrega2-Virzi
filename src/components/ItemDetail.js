@@ -121,7 +121,7 @@ const ItemDetail = ({ product }) => {
                 alt="minus"
               ></img>
             </button>
-            <span className="d-counter-div__number">{counter}</span>
+            <span className="d-counter-div__number">{counter>0 ? counter: setCounter(1)}</span>
             <button
               onClick={increment}
               className="d-cart-div__counter-btn"

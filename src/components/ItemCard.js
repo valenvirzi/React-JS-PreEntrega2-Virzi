@@ -129,7 +129,7 @@ const ItemCard = ({ product }) => {
                 alt="minus"
               ></img>
             </button>
-            <span className="counter-div__number">{counter}</span>
+            <span className="counter-div__number">{counter>0 ? counter: setCounter(1)}</span>
             <button
               onClick={increment}
               className="cart-div__counter-btn"
