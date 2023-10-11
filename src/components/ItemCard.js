@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 
 const ItemCard = ({ product }) => {
   //TODO: Solucionar el tema de los useState(s) y lograr que se muestren el Stock y el Precio en base a las características seleccionadas
-  const [counter, setCounter] = useState(0);
-  const [modeIndex, setModelIndex] = useState({ color: 0, storage: 0 });
-  //const [storageIndex, setStorageIndex] = useState(0);
+  const [counter, setCounter] = useState(1);
+  const [modeIndex, setModeIndex] = useState({ color: 0, storage: 0 });
   const [stock, setStock] = useState(0);
 
   function getNestedStockValue(product, modeIndex) {
@@ -28,13 +27,19 @@ const ItemCard = ({ product }) => {
     // el evento reemplaza a "modelIndex" que dispara al useEffect porq ya estoy haciendo un setStock al pedo porq es el trabajo del useEffect
   }, [modeIndex, product]);
 
-  useEffect(() => {}, [stock]);
+  useEffect(() => {
+    if (counter > stock) {
+      setCounter(stock);
+    }
+  }, [stock]);
 
   const increment = () => {
-    setCounter(counter + 1);
+    if (counter < stock) {
+      setCounter(counter + 1);
+    }
   };
   const decrement = () => {
-    if (counter > 0) {
+    if (counter > 1) {
       setCounter(counter - 1);
     }
   };
@@ -42,7 +47,7 @@ const ItemCard = ({ product }) => {
   return (
     <div className="card">
       {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
-      <img className="card__img" src={product.img[0]} alt="Product IMG"></img>
+      <img className="card__img" src={product.img[modeIndex.color]} alt="Product IMG"></img>
       <div className="card__info">
         <h2 className="card-info__name">{product.name}</h2>
         {/* TODO: Hacer que el nombre del color cambié según el color elegido */}
@@ -63,8 +68,7 @@ const ItemCard = ({ product }) => {
                 ></input>
                 <label
                   onClick={(event) => {
-                    setModelIndex((prevModel) => {
-                      console.log(event);
+                    setModeIndex((prevModel) => {
                       return { ...prevModel, color: index };
                     });
                   }}
@@ -91,7 +95,7 @@ const ItemCard = ({ product }) => {
                 ></input>
                 <label
                   onClick={(event) => {
-                    setModelIndex((prevModel) => {
+                    setModeIndex((prevModel) => {
                       return { ...prevModel, storage: index };
                     });
                   }}
@@ -106,7 +110,7 @@ const ItemCard = ({ product }) => {
           </div>
         </form>
         {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
-        <span className="card-info__price">U$D {product.price[0]}</span>
+        <span className="card-info__price">U$D {product.price[modeIndex.storage]}</span>
         <Link to={`/item/${product.id}`}>
           <button className="card-info__btn detail-btn" type="button">
             <p className="detail-btn__p">Ver Detalle</p>
