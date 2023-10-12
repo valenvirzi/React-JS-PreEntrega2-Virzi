@@ -3,7 +3,6 @@ import "./ItemCard.css";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({ product }) => {
-  //TODO: Solucionar el tema de los useState(s) y lograr que se muestren el Stock y el Precio en base a las características seleccionadas
   const [counter, setCounter] = useState(1);
   const [modeIndex, setModeIndex] = useState({ color: 0, storage: 0 });
   const [stock, setStock] = useState(0);
@@ -23,8 +22,8 @@ const ItemCard = ({ product }) => {
 
   useEffect(() => {
     setStock(getNestedStockValue(product, modeIndex));
-    ///TODO: en lugar de llamar al cambio de stock ya cambiando el stock (linea 66) llamar al useEffect cuando un evento ocurra (en tu caso al seleccionar un color o una etiqueta storage).
-    // el evento reemplaza a "modelIndex" que dispara al useEffect porq ya estoy haciendo un setStock al pedo porq es el trabajo del useEffect
+    ///TODO: En lugar de llamar al cambio de stock ya cambiando el stock (línea 66) llamar al useEffect cuando un evento ocurra (en tu caso al seleccionar un color o una etiqueta storage).
+    // El evento reemplaza a "modelIndex" que dispara al useEffect porq ya estoy haciendo un setStock al pedo porq es el trabajo del useEffect
   }, [modeIndex, product]);
 
   useEffect(() => {
@@ -46,11 +45,9 @@ const ItemCard = ({ product }) => {
 
   return (
     <div className="card">
-      {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
       <img className="card__img" src={product.img[modeIndex.color]} alt="Product IMG"></img>
       <div className="card__info">
         <h2 className="card-info__name">{product.name}</h2>
-        {/* TODO: Hacer que el nombre del color cambié según el color elegido */}
         <p className="card-info__color">
           Stock: <span className="card-info__picked-color">{stock}</span>
         </p>
@@ -109,7 +106,6 @@ const ItemCard = ({ product }) => {
             ))}
           </div>
         </form>
-        {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
         <span className="card-info__price">U$D {product.price[modeIndex.storage]}</span>
         <Link to={`/item/${product.id}`}>
           <button className="card-info__btn detail-btn" type="button">

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./ItemDetail.css";
 
 const ItemDetail = ({ product }) => {
-  //TODO: Solucionar el tema de los useState(s) y lograr que se muestren el Stock y el Precio en base a las características seleccionadas
   const [counter, setCounter] = useState(1);
   const [modeIndex, setModeIndex] = useState({ color: 0, storage: 0 });
   const [stock, setStock] = useState(0);
@@ -43,11 +42,9 @@ const ItemDetail = ({ product }) => {
 
   return (
     <div className="detail">
-      {/* TODO: Hacer que la imagen cambie según cada Objeto Producto (y el color elegido) */}
       <img className="detail__img" src={product.img[modeIndex.color]} alt="Product IMG"></img>
       <div className="detail__info">
         <h2 className="detail-info__name">{product.name}</h2>
-        {/* TODO: Hacer que el nombre del color cambié según el color elegido */}
         <p className="detail-info__color">
           Stock: <span className="detail-info__picked-color">{stock}</span>
         </p>
@@ -106,7 +103,6 @@ const ItemDetail = ({ product }) => {
             ))}
           </div>
         </form>
-        {/* TODO: Hacer que el precio cambie según las propiedades elegidas (memoria) */}
         <span className="detail-info__price">U$D {product.price[modeIndex.storage]}</span>
         <div className="detail-info__cart-div">
           <div className="d-cart-div__counter-div">
