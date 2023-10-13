@@ -21,7 +21,7 @@ const ItemDetail = ({ product }) => {
 
   useEffect(() => {
     setStock(getNestedStockValue(product, modeIndex));
-    ///TODO: en lugar de llamar al cambio de stock ya cambiando el stock (linea 66) llamar al useEffect cuando un evento ocurra (en tu caso al seleccionar un color o una etiqueta storage).
+    // TODO: en lugar de llamar al cambio de stock ya cambiando el stock (linea 66) llamar al useEffect cuando un evento ocurra (en tu caso al seleccionar un color o una etiqueta storage).
     // el evento reemplaza a "modelIndex" que dispara al useEffect porq ya estoy haciendo un setStock al pedo porq es el trabajo del useEffect
   }, [modeIndex, product]);
 

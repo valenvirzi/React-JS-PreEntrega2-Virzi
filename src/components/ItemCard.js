@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { ACTIONS } from "../App";
+import { useCart } from "../context/CartContext";
 import "./ItemCard.css";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({ product }) => {
+  const { dispatch } = useCart();
   const [counter, setCounter] = useState(1);
   const [modeIndex, setModeIndex] = useState({ color: 0, storage: 0 });
   const [stock, setStock] = useState(0);
+
+  const addToCart = () => {
+    dispatch({
+      type: ACTIONS.ADD_TO_CART,
+      payload: product,
+    });
+    console.log(product);
+  };
 
   function getNestedStockValue(product, modeIndex) {
     if (
@@ -45,7 +56,11 @@ const ItemCard = ({ product }) => {
 
   return (
     <div className="card">
-      <img className="card__img" src={product.img[modeIndex.color]} alt="Product IMG"></img>
+      <img
+        className="card__img"
+        src={product.img[modeIndex.color]}
+        alt="Product IMG"
+      ></img>
       <div className="card__info">
         <h2 className="card-info__name">{product.name}</h2>
         <p className="card-info__color">
@@ -106,7 +121,9 @@ const ItemCard = ({ product }) => {
             ))}
           </div>
         </form>
-        <span className="card-info__price">U$D {product.price[modeIndex.storage]}</span>
+        <span className="card-info__price">
+          U$D {product.price[modeIndex.storage]}
+        </span>
         <Link to={`/item/${product.id}`}>
           <button className="card-info__btn detail-btn" type="button">
             <p className="detail-btn__p">Ver Detalle</p>
@@ -125,7 +142,9 @@ const ItemCard = ({ product }) => {
                 alt="minus"
               ></img>
             </button>
-            <span className="counter-div__number">{counter>0 ? counter: setCounter(1)}</span>
+            <span className="counter-div__number">
+              {counter > 0 ? counter : setCounter(1)}
+            </span>
             <button
               onClick={increment}
               className="cart-div__counter-btn"
@@ -139,7 +158,11 @@ const ItemCard = ({ product }) => {
             </button>
           </div>
           {/* TODO: Lograr que el botón añada el respectivo producto (y la cantidad elegida del mismo) al Array de confirmación de Carrito */}
-          <button className="cart-div__add-btn" type="button">
+          <button
+            className="cart-div__add-btn"
+            onClick={addToCart}
+            type="button"
+          >
             <img
               className="add-btn__img"
               src="https://www.svgrepo.com/show/533042/cart-plus.svg"
