@@ -6,10 +6,6 @@ import { ACTIONS } from "../App";
 
 const CartDisplay = () => {
   const { cartState, dispatch } = useCart();
-
-  const removeItem = (product) => {
-    dispatch({ type: ACTIONS.REMOVE_FROM_CART, payload: product });
-  };
   return (
     // TODO: Hacer un condicional ternario para mostrar un mensaje si el carrito está vacío o mostrar el carrito en caso de que haya productos en él.
     <section className="CartDisplay">
@@ -26,7 +22,13 @@ const CartDisplay = () => {
         </div>
         <ul className="CartDisplay__list">
           {cartState.cartItems.map((item) => {
-            return <CartItem key={item.product.id} product={item.product} modeIndex={item.modeIndex}/>;
+            return (
+              <CartItem
+                key={item.product.id}
+                product={item.product}
+                modeIndex={item.modeIndex}
+              />
+            );
           })}
         </ul>
         <div className="CartDisplay__bottom">

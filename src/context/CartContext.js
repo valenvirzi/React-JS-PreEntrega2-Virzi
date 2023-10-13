@@ -10,13 +10,12 @@ export const useCart = () => {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.ADD_TO_CART:
-      return { ...state, cartItems: [...state.cartItems, action.payload] };
+      if (action.payload.product.id === state.cartItems.find(() => {}))
+        return { ...state, cartItems: [...state.cartItems, action.payload] };
     case ACTIONS.REMOVE_FROM_CART:
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.id !== action.payload.id
-        ),
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
       };
     case ACTIONS.CLEAR_CART:
       return {

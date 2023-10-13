@@ -13,9 +13,8 @@ const ItemCard = ({ product }) => {
   const addToCart = () => {
     dispatch({
       type: ACTIONS.ADD_TO_CART,
-      payload: {product, modeIndex},
+      payload: { product, modeIndex, counter },
     });
-    console.log(product);
   };
 
   function getNestedStockValue(product, modeIndex) {

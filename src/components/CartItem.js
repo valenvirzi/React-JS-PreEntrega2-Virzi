@@ -1,8 +1,14 @@
 import React from "react";
 import "./CartItem.css";
+import { useCart } from "../context/CartContext";
+import { ACTIONS } from "../App";
 
 const CartItem = ({ product, modeIndex }) => {
-  console.log(product);
+  const { cartState, dispatch } = useCart();
+
+  const removeItem = (product) => {
+    dispatch({ type: ACTIONS.REMOVE_FROM_CART, payload: product.id });
+  };
   return (
     <li className="CartDisplay__row">
       <div className="row__item">
@@ -19,7 +25,9 @@ const CartItem = ({ product, modeIndex }) => {
             <p className="item__property">
               {product.storage[modeIndex.storage]}GB
             </p>
-            <p className="item__property">Stock: {product.stock[modeIndex.color][modeIndex.storage]}u.</p>
+            <p className="item__property">
+              Stock: {product.stock[modeIndex.color][modeIndex.storage]}u.
+            </p>
           </div>
         </div>
         <div className="item__column">
@@ -40,7 +48,9 @@ const CartItem = ({ product, modeIndex }) => {
           </button>
         </div>
         <div className="item__column">
-          <span className="item__price">{product.price[modeIndex.storage]} U$D</span>
+          <span className="item__price">
+            {product.price[modeIndex.storage]} U$D
+          </span>
         </div>
         <div className="item__column">
           <span className="item__price">
@@ -48,7 +58,11 @@ const CartItem = ({ product, modeIndex }) => {
           </span>
         </div>
         <div className="item__column">
-          <button className="item__delete-btn" type="button">
+          <button
+            className="item__delete-btn"
+            onClick={removeItem}
+            type="button"
+          >
             <img
               className="delete-btn__img"
               src="./close-x.svg"
