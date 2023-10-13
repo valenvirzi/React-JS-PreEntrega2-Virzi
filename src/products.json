@@ -5,6 +5,7 @@
     "company": "Samsung",
     "category": "phones",
     "stock": 3,
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam quae alias nihil laborum nesciunt.",
     "img": "https://samsungar.vtexassets.com/arquivos/ids/189107-800-auto?width=800&height=auto&aspect=true",
     "price": 810
   },
@@ -14,6 +15,7 @@
     "company": "Samsung",
     "category": "phones",
     "stock": 5,
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris viverra justo auctor risus.",
     "img": "https://samsungar.vtexassets.com/arquivos/ids/191397-800-auto?width=800&height=auto&aspect=true",
     "price": 1129
   },
@@ -23,6 +25,7 @@
     "company": "Samsung",
     "category": "phones",
     "stock": 6,
+    "desc": "Quisque eleifend ante vel turpis gravida, eu bibendum dolor eleifend. Nulla facilisi.",
     "img": "https://samsungar.vtexassets.com/arquivos/ids/191242-800-auto?width=800&height=auto&aspect=true",
     "price": 239
   },
@@ -32,6 +35,7 @@
     "company": "Samsung",
     "category": "tablets",
     "stock": 4,
+    "desc": "In hac habitasse platea dictumst. Fusce sagittis turpis in elit varius, eget rutrum erat.",
     "img": "https://samsungar.vtexassets.com/arquivos/ids/191863-800-auto?width=800&height=auto&aspect=true",
     "price": 259
   },
@@ -41,6 +45,7 @@
     "company": "Samsung",
     "category": "tablets",
     "stock": 3,
+    "desc": "Vestibulum ultrices justo id augue tristique, sit amet malesuada dolor malesuada.",
     "img": "https://samsungar.vtexassets.com/arquivos/ids/189199-800-auto?width=800&height=auto&aspect=true",
     "price": 1089
   },
@@ -50,6 +55,7 @@
     "company": "Samsung",
     "category": "smartwatch",
     "stock": 2,
+    "desc": "Etiam fringilla quam in justo fringilla, eget interdum ligula euismod. Sed rhoncus.",
     "img": "https://samsungar.vtexassets.com/arquivos/ids/184157-800-auto?width=800&height=auto&aspect=true",
     "price": 239
   },
@@ -59,6 +65,7 @@
     "company": "Samsung",
     "category": "smartwatch",
     "stock": 5,
+    "desc": "Aenean commodo tortor vel odio condimentum, non scelerisque turpis suscipit. Suspendisse consectetur.",
     "img": "https://samsungar.vtexassets.com/arquivos/ids/173345-800-auto?width=800&height=auto&aspect=true",
     "price": 289
   }

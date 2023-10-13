@@ -22,6 +22,7 @@ const ItemDetail = ({ product }) => {
         <p className="detail-info__color">
           Stock: <span className="detail-info__picked-color">{product.stock}</span>
         </p>
+        <p>{product.desc}</p>
         <span className="detail-info__price">U$D {product.price}</span>
         <div className="detail-info__cart-div">
           <div className="d-cart-div__counter-div">
