@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
       setTimeout(() => {
         const data = products.find((item) => item.id === Number(id));
         resolve(data);
-      }, 1500);
+      }, 500);
     });
     foundItem.then((data) => {
       setItem(data);
