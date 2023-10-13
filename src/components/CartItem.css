@@ -14,8 +14,10 @@
   column-gap: 0.5rem;
 }
 .item__div-img {
+  width: 50%;
 }
 .item__img {
+
 }
 .item__info {
   display: flex;

@@ -13,7 +13,7 @@ const ItemCard = ({ product }) => {
   const addToCart = () => {
     dispatch({
       type: ACTIONS.ADD_TO_CART,
-      payload: product,
+      payload: {product, modeIndex},
     });
     console.log(product);
   };

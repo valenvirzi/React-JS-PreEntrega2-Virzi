@@ -1,8 +1,8 @@
 import React from "react";
 import "./CartItem.css";
 
-const CartItem = ({ product, index, removeItem }) => {
-  
+const CartItem = ({ product, modeIndex }) => {
+  console.log(product);
   return (
     <li className="CartDisplay__row">
       <div className="row__item">
@@ -10,18 +10,16 @@ const CartItem = ({ product, index, removeItem }) => {
           <div className="item__div-img">
             <img
               className="item__img"
-              // src={product.img[index.color]}
+              src={product.img[modeIndex.color]}
               alt="product-1"
             ></img>
           </div>
           <div className="item__info">
-            <h3 className="item__name">
-              {/* {product.name} */}
-              </h3>
-            {/* <p className="item__property">Memoria</p>
-            <p className="item__property">Stock</p>
-            <p className="item__property">Color</p>
-            <p className="item__property">Empresa</p> */}
+            <h3 className="item__name">{product.name}</h3>
+            <p className="item__property">
+              {product.storage[modeIndex.storage]}GB
+            </p>
+            <p className="item__property">Stock: {product.stock[modeIndex.color][modeIndex.storage]}u.</p>
           </div>
         </div>
         <div className="item__column">
@@ -32,9 +30,7 @@ const CartItem = ({ product, index, removeItem }) => {
               alt="minus"
             ></img>
           </button>
-          <span className="counter__amount">
-            {/* {product.quantity} */}
-            </span>
+          <span className="counter__amount">{/* {product.quantity} */}</span>
           <button className="item__counter-btn btn" type="button">
             <img
               className="cart-item-counter-btn__img"
@@ -44,17 +40,15 @@ const CartItem = ({ product, index, removeItem }) => {
           </button>
         </div>
         <div className="item__column">
-          <span className="item__price">
-            {/* {product.price} */}
-            </span>
+          <span className="item__price">{product.price[modeIndex.storage]} U$D</span>
         </div>
         <div className="item__column">
           <span className="item__price">
-            {/* {product.quantity * product.price} */}
+            {/* {product.quantity * (product.price[modeIndex.storage]}) */}
           </span>
         </div>
         <div className="item__column">
-          <button className="item__delete-btn" onClick={()=> removeItem(product)} type="button">
+          <button className="item__delete-btn" type="button">
             <img
               className="delete-btn__img"
               src="./close-x.svg"
