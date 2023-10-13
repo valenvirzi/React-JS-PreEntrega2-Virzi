@@ -1,7 +1,7 @@
 import React from "react";
 import "./CartItem.css";
 
-const CartItem = ({ product, index, removeItem }) => {
+const CartItem = ({ product }) => {
   
   return (
     <li className="CartDisplay__row">
@@ -10,7 +10,7 @@ const CartItem = ({ product, index, removeItem }) => {
           <div className="item__div-img">
             <img
               className="item__img"
-              // src={product.img[index.color]}
+              // src={product.img}
               alt="product-1"
             ></img>
           </div>
@@ -54,7 +54,7 @@ const CartItem = ({ product, index, removeItem }) => {
           </span>
         </div>
         <div className="item__column">
-          <button className="item__delete-btn" onClick={()=> removeItem(product)} type="button">
+          <button className="item__delete-btn" type="button">
             <img
               className="delete-btn__img"
               src="./close-x.svg"

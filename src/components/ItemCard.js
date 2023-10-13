@@ -1,50 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { ACTIONS } from "../App";
-import { useCart } from "../context/CartContext";
+import React, { useState } from "react";
 import "./ItemCard.css";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({ product }) => {
-  const { dispatch } = useCart();
   const [counter, setCounter] = useState(1);
-  const [modeIndex, setModeIndex] = useState({ color: 0, storage: 0 });
-  const [stock, setStock] = useState(0);
-
-  const addToCart = () => {
-    dispatch({
-      type: ACTIONS.ADD_TO_CART,
-      payload: product,
-    });
-    console.log(product);
-  };
-
-  function getNestedStockValue(product, modeIndex) {
-    if (
-      product &&
-      product.stock &&
-      Array.isArray(product.stock[modeIndex.color]) &&
-      Array.isArray(product.stock[modeIndex.storage])
-    ) {
-      return product.stock[modeIndex.color][modeIndex.storage];
-    }
-    // Valor por Default
-    return 0;
-  }
-
-  useEffect(() => {
-    setStock(getNestedStockValue(product, modeIndex));
-    ///TODO: En lugar de llamar al cambio de stock ya cambiando el stock (línea 66) llamar al useEffect cuando un evento ocurra (en tu caso al seleccionar un color o una etiqueta storage).
-    // El evento reemplaza a "modelIndex" que dispara al useEffect porq ya estoy haciendo un setStock al pedo porq es el trabajo del useEffect
-  }, [modeIndex, product]);
-
-  useEffect(() => {
-    if (counter > stock) {
-      setCounter(stock);
-    }
-  }, [stock]);
 
   const increment = () => {
-    if (counter < stock) {
+    if (counter < product.stock) {
       setCounter(counter + 1);
     }
   };
@@ -56,74 +18,14 @@ const ItemCard = ({ product }) => {
 
   return (
     <div className="card">
-      <img
-        className="card__img"
-        src={product.img[modeIndex.color]}
-        alt="Product IMG"
-      ></img>
+      <img className="card__img" src={product.img} alt="Product IMG"></img>
       <div className="card__info">
         <h2 className="card-info__name">{product.name}</h2>
         <p className="card-info__color">
-          Stock: <span className="card-info__picked-color">{stock}</span>
+          Stock:{" "}
+          <span className="card-info__picked-color">{product.stock}</span>
         </p>
-        <form id={`card__form${product.id}`} className="card-info__form">
-          <div className="card-info__color-form">
-            {product.colorRGB.map((color, index) => (
-              <div key={color} className="card-info__color-form">
-                <input
-                  value={`${product.colorRGB[index]}`}
-                  name="color"
-                  form={`card__form${product.id}`}
-                  className="color-form__input"
-                  id={`${product.colorRGB[index]}${product.id}`}
-                  type="radio"
-                ></input>
-                <label
-                  onClick={(event) => {
-                    setModeIndex((prevModel) => {
-                      return { ...prevModel, color: index };
-                    });
-                  }}
-                  style={{
-                    backgroundColor: `rgb(${product.colorRGB[index]})`,
-                  }}
-                  form={`card__form${product.id}`}
-                  className="color-form__label"
-                  for={`${product.colorRGB[index]}${product.id}`}
-                ></label>
-              </div>
-            ))}
-          </div>
-          <div className="card-info__memory-form">
-            {product.storage.map((storage, index) => (
-              <div key={index}>
-                <input
-                  data-id={index}
-                  name="memory"
-                  form={`card__form${product.id}`}
-                  className="memory-form__input"
-                  id={`${index}gb${product.id}`}
-                  type="radio"
-                ></input>
-                <label
-                  onClick={(event) => {
-                    setModeIndex((prevModel) => {
-                      return { ...prevModel, storage: index };
-                    });
-                  }}
-                  form={`card__form${product.id}`}
-                  className="memory-form__label"
-                  for={`${index}gb${product.id}`}
-                >
-                  {storage}GB
-                </label>
-              </div>
-            ))}
-          </div>
-        </form>
-        <span className="card-info__price">
-          U$D {product.price[modeIndex.storage]}
-        </span>
+        <span className="card-info__price">U$D {product.price}</span>
         <Link to={`/item/${product.id}`}>
           <button className="card-info__btn detail-btn" type="button">
             <p className="detail-btn__p">Ver Detalle</p>
@@ -160,7 +62,7 @@ const ItemCard = ({ product }) => {
           {/* TODO: Lograr que el botón añada el respectivo producto (y la cantidad elegida del mismo) al Array de confirmación de Carrito */}
           <button
             className="cart-div__add-btn"
-            onClick={addToCart}
+            // onClick={addToCart}
             type="button"
           >
             <img
