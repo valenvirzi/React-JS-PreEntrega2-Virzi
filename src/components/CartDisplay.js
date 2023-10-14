@@ -2,6 +2,7 @@ import React from "react";
 import "./CartDisplay.css";
 import CartItem from "./CartItem";
 import { useCart } from "../context/CartContext";
+import { ACTIONS } from "../App";
 
 const CartDisplay = () => {
   const { cartState, dispatch } = useCart();
@@ -39,7 +40,11 @@ const CartDisplay = () => {
             </h3>
           </div>
           <div className="bottom__buttons">
-            <button className="bottom-btn clear-btn" type="button">
+            <button
+              className="bottom-btn clear-btn"
+              onClick={() => dispatch({ type: ACTIONS.CLEAR_CART })}
+              type="button"
+            >
               <img
                 className="bottom-btn__img"
                 alt="trash-can"
