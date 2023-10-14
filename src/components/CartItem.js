@@ -1,11 +1,18 @@
 import React from "react";
 import "./CartItem.css";
 import { useCart } from "../context/CartContext";
+import { ACTIONS } from "../App";
 
 const CartItem = ({ product, quantity }) => {
-  const { cartState, dispatch } = useCart();
+  const { dispatch } = useCart();
 
-  const removeFromCart = () => {};
+  const removeItem = (product) => {
+    dispatch({
+      type: ACTIONS.REMOVE_FROM_CART,
+      payload: product,
+    });
+  };
+
   return (
     <li className="CartDisplay__row">
       <div className="row__item">
@@ -15,10 +22,7 @@ const CartItem = ({ product, quantity }) => {
           </div>
           <div className="item__info">
             <h3 className="item__name">{product.name}</h3>
-            {/* <p className="item__property">Memoria</p>
-            <p className="item__property">Stock</p>
-            <p className="item__property">Color</p>
-            <p className="item__property">Empresa</p> */}
+            <p className="item__property">Stock: {product.stock}u.</p>
           </div>
         </div>
         <div className="item__column">
@@ -39,17 +43,15 @@ const CartItem = ({ product, quantity }) => {
           </button>
         </div>
         <div className="item__column">
-          <span className="item__price">{/* {product.price} */}</span>
+          <span className="item__price">{product.price} U$D</span>
         </div>
         <div className="item__column">
-          <span className="item__price">
-            {/* {product.quantity * product.price} */}
-          </span>
+          <span className="item__price">{quantity * product.price} U$D</span>
         </div>
         <div className="item__column">
           <button
             className="item__delete-btn"
-            onClick={() => removeFromCart}
+            onClick={removeItem}
             type="button"
           >
             <img

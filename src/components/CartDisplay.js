@@ -6,6 +6,14 @@ import { ACTIONS } from "../App";
 
 const CartDisplay = () => {
   const { cartState, dispatch } = useCart();
+  const cartItemsArray = cartState.cartItems;
+
+  const totalCost =
+    cartItemsArray.length > 0
+      ? cartItemsArray.reduce((total, item) => {
+          return total + item.product.price * item.counter;
+        }, 0)
+      : 0;
 
   return (
     // TODO: Hacer un condicional ternario para mostrar un mensaje si el carrito está vacío o mostrar el carrito en caso de que haya productos en él.
@@ -33,7 +41,8 @@ const CartDisplay = () => {
         <div className="CartDisplay__bottom">
           <div className="bottom__total">
             <h3 className="total__title">
-              Total: $<span className="total__price">720000</span>
+              Total: U$D
+              <span className="total__price"> {totalCost}</span>
             </h3>
           </div>
           <div className="bottom__buttons">

@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 
 const ItemCard = ({ product }) => {
   const [counter, setCounter] = useState(1);
-  const { dispatch } = useCart;
+  const { dispatch } = useCart();
 
   const addToCart = () => {
     dispatch({
