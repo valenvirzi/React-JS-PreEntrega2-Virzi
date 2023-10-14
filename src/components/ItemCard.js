@@ -22,7 +22,7 @@ const ItemCard = ({ product }) => {
       <div className="card__info">
         <h2 className="card-info__name">{product.name}</h2>
         <p className="card-info__color">
-          Stock:{" "}
+          Stock:
           <span className="card-info__picked-color">{product.stock}</span>
         </p>
         <span className="card-info__price">U$D {product.price}</span>

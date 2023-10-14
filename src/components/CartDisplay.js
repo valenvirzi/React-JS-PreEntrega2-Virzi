@@ -3,7 +3,6 @@ import "./CartDisplay.css";
 import CartItem from "./CartItem";
 
 const CartDisplay = () => {
-
   return (
     // TODO: Hacer un condicional ternario para mostrar un mensaje si el carrito está vacío o mostrar el carrito en caso de que haya productos en él.
     <section className="CartDisplay">
@@ -29,10 +28,7 @@ const CartDisplay = () => {
             </h3>
           </div>
           <div className="bottom__buttons">
-            <button
-              className="bottom-btn clear-btn"
-              type="button"
-            >
+            <button className="bottom-btn clear-btn" type="button">
               <img
                 className="bottom-btn__img"
                 alt="trash-can"

@@ -4,7 +4,6 @@ import "./ItemDetail.css";
 const ItemDetail = ({ product }) => {
   const [counter, setCounter] = useState(1);
 
-
   const increment = () => {
     setCounter(counter + 1);
   };
@@ -20,7 +19,8 @@ const ItemDetail = ({ product }) => {
       <div className="detail__info">
         <h2 className="detail-info__name">{product.name}</h2>
         <p className="detail-info__color">
-          Stock: <span className="detail-info__picked-color">{product.stock}</span>
+          Stock:
+          <span className="detail-info__picked-color">{product.stock}</span>
         </p>
         <p>{product.desc}</p>
         <span className="detail-info__price">U$D {product.price}</span>
@@ -37,7 +37,9 @@ const ItemDetail = ({ product }) => {
                 alt="minus"
               ></img>
             </button>
-            <span className="d-counter-div__number">{counter>0 ? counter: setCounter(1)}</span>
+            <span className="d-counter-div__number">
+              {counter > 0 ? counter : setCounter(1)}
+            </span>
             <button
               onClick={increment}
               className="d-cart-div__counter-btn"
