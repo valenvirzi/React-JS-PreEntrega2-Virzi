@@ -7,7 +7,10 @@ const CartItem = ({ product, modeIndex }) => {
   const { cartState, dispatch } = useCart();
 
   const removeItem = (product) => {
-    dispatch({ type: ACTIONS.REMOVE_FROM_CART, payload: product.id });
+    dispatch({
+      type: ACTIONS.REMOVE_FROM_CART,
+      payload: { product, modeIndex },
+    });
   };
   return (
     <li className="CartDisplay__row">

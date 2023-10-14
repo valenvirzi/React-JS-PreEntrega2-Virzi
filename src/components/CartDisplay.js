@@ -24,7 +24,11 @@ const CartDisplay = () => {
           {cartState.cartItems.map((item) => {
             return (
               <CartItem
-                key={item.product.id}
+                key={
+                  item.product.id +
+                  item.modeIndex.color +
+                  item.modeIndex.storage
+                }
                 product={item.product}
                 modeIndex={item.modeIndex}
               />
