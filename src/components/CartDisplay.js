@@ -1,8 +1,13 @@
 import React from "react";
 import "./CartDisplay.css";
 import CartItem from "./CartItem";
+import { useCart } from "../context/CartContext";
 
 const CartDisplay = () => {
+  const { cartState, dispatch } = useCart();
+
+  const removeFromCart = () => {};
+
   return (
     // TODO: Hacer un condicional ternario para mostrar un mensaje si el carrito está vacío o mostrar el carrito en caso de que haya productos en él.
     <section className="CartDisplay">
@@ -18,9 +23,14 @@ const CartDisplay = () => {
           <hr className="row-division"></hr>
         </div>
         <ul className="CartDisplay__list">
-          {/* {cartState.cartItems} */}
-          <CartItem />
-          <CartItem />
+          {cartState.cartItems.map((item) => (
+            <CartItem
+              key={item.product.id}
+              product={item.product}
+              quantity={item.counter}
+              removeItem={removeFromCart}
+            />
+          ))}
         </ul>
         <div className="CartDisplay__bottom">
           <div className="bottom__total">

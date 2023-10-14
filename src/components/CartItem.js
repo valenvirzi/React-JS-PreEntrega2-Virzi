@@ -1,23 +1,16 @@
 import React from "react";
 import "./CartItem.css";
 
-const CartItem = ({ product }) => {
-  
+const CartItem = ({ product, quantity, removeItem }) => {
   return (
     <li className="CartDisplay__row">
       <div className="row__item">
         <div className="item__column">
           <div className="item__div-img">
-            <img
-              className="item__img"
-              // src={product.img}
-              alt="product-1"
-            ></img>
+            <img className="item__img" src={product.img} alt="product-1"></img>
           </div>
           <div className="item__info">
-            <h3 className="item__name">
-              {/* {product.name} */}
-              </h3>
+            <h3 className="item__name">{product.name}</h3>
             {/* <p className="item__property">Memoria</p>
             <p className="item__property">Stock</p>
             <p className="item__property">Color</p>
@@ -32,9 +25,7 @@ const CartItem = ({ product }) => {
               alt="minus"
             ></img>
           </button>
-          <span className="counter__amount">
-            {/* {product.quantity} */}
-            </span>
+          <span className="counter__amount">{quantity}</span>
           <button className="item__counter-btn btn" type="button">
             <img
               className="cart-item-counter-btn__img"
@@ -44,9 +35,7 @@ const CartItem = ({ product }) => {
           </button>
         </div>
         <div className="item__column">
-          <span className="item__price">
-            {/* {product.price} */}
-            </span>
+          <span className="item__price">{/* {product.price} */}</span>
         </div>
         <div className="item__column">
           <span className="item__price">
@@ -54,7 +43,11 @@ const CartItem = ({ product }) => {
           </span>
         </div>
         <div className="item__column">
-          <button className="item__delete-btn" type="button">
+          <button
+            className="item__delete-btn"
+            onClick={removeItem}
+            type="button"
+          >
             <img
               className="delete-btn__img"
               src="./close-x.svg"
