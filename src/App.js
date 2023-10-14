@@ -5,6 +5,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartDisplay from "./components/CartDisplay";
 import { CartProvider } from "./context/CartContext";
+import ConfirmForm from "./components/ConfirmForm";
 
 export const ACTIONS = {
   ADD_TO_CART: "ADD_TO_CART",
@@ -13,21 +14,21 @@ export const ACTIONS = {
 };
 
 function App() {
-
   return (
     <CartProvider>
-    <BrowserRouter>
-    <div className="App">
-      <NavBar />
-      <div className="spacingBar"></div>
-      <Routes>
-        <Route exact path="/" element={<ItemListContainer/>}/>
-        <Route exact path="/category/:id" element={<ItemListContainer/>}/>
-        <Route path={"/item/:id"} element={<ItemDetailContainer/>} />
-        <Route exact path="/cart" element={<CartDisplay/>}/>
-      </Routes>
-    </div>
-    </BrowserRouter>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
+          <div className="spacingBar"></div>
+          <Routes>
+            <Route exact path="/" element={<ItemListContainer />} />
+            <Route exact path="/category/:id" element={<ItemListContainer />} />
+            <Route path={"/item/:id"} element={<ItemDetailContainer />} />
+            <Route exact path="/cart" element={<CartDisplay />} />
+            <Route exact path="/confirm-form" element={<ConfirmForm />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </CartProvider>
   );
 }

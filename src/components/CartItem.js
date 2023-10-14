@@ -7,6 +7,7 @@ const CartItem = ({ product, quantity }) => {
   const { dispatch } = useCart();
 
   const removeItem = () => {
+    console.log("dispatch-remove");
     dispatch({
       type: ACTIONS.REMOVE_FROM_CART,
       payload: product.id,
@@ -26,21 +27,7 @@ const CartItem = ({ product, quantity }) => {
           </div>
         </div>
         <div className="item__column">
-          <button className="item__counter-btn btn" type="button">
-            <img
-              className="cart-item-counter-btn__img"
-              src="./minus.svg"
-              alt="minus"
-            ></img>
-          </button>
           <span className="counter__amount">{quantity}</span>
-          <button className="item__counter-btn btn" type="button">
-            <img
-              className="cart-item-counter-btn__img"
-              src="./plus.svg"
-              alt="plus"
-            ></img>
-          </button>
         </div>
         <div className="item__column">
           <span className="item__price">{product.price} U$D</span>

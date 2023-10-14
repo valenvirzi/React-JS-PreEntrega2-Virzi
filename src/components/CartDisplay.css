@@ -40,15 +40,14 @@
   justify-content: space-between;
 }
 .bottom__total {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .total__title {
-    font-size: 1.75rem;
-    font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 .total__price {
-
 }
 .bottom__buttons {
   width: 35%;
@@ -67,6 +66,9 @@
   justify-content: center;
   align-items: center;
 }
+.button-link {
+  width: 100%;
+}
 .clear-btn {
   background-color: rgb(255, 92, 97, 0.45);
 }
@@ -77,13 +79,14 @@
   background-color: rgb(255, 92, 97, 0.95);
 }
 .confirm-btn {
-    background-color: rgb(253, 197, 0, 0.45);
+  width: 100%;
+  background-color: rgb(253, 197, 0, 0.45);
 }
 .confirm-btn:hover {
-    background-color: rgb(253, 197, 0, 0.75);
+  background-color: rgb(253, 197, 0, 0.75);
 }
 .confirm-btn:active {
-    background-color: rgb(253, 197, 0, 0.95);
+  background-color: rgb(253, 197, 0, 0.95);
 }
 .bottom-btn__img {
   max-width: 100%;

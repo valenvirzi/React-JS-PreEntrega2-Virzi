@@ -1,0 +1,30 @@
+.div-confirm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  padding: 3rem 12vw;
+}
+.confirm-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.confirm-form__div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4rem;
+}
+.confirm-form__label {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.confirm-form__input {
+  padding: 0.25rem;
+  font-size: 1.2rem;
+}
+.button-confirm__text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}

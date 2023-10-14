@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CartDisplay.css";
+import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { useCart } from "../context/CartContext";
 import { ACTIONS } from "../App";
 
 const CartDisplay = () => {
   const { cartState, dispatch } = useCart();
-  const cartItemsArray = cartState.cartItems;
+  const [totalCost, setTotalCost] = useState(0);
 
-  const totalCost =
-    cartItemsArray.length > 0
-      ? cartItemsArray.reduce((total, item) => {
-          return total + item.product.price * item.counter;
-        }, 0)
-      : 0;
+  useEffect(() => {
+    const total =
+      cartState.cartItems.length > 0
+        ? cartState.cartItems.reduce((total, item) => {
+            return total + item.product.price * item.quantity;
+          }, 0)
+        : 0;
+    setTotalCost(total);
+  }, [cartState.cartItems]);
 
   return (
     // TODO: Hacer un condicional ternario para mostrar un mensaje si el carrito está vacío o mostrar el carrito en caso de que haya productos en él.
@@ -34,7 +38,7 @@ const CartDisplay = () => {
             <CartItem
               key={item.product.id}
               product={item.product}
-              quantity={item.counter}
+              quantity={item.quantity}
             />
           ))}
         </ul>
@@ -48,7 +52,9 @@ const CartDisplay = () => {
           <div className="bottom__buttons">
             <button
               className="bottom-btn clear-btn"
-              onClick={() => dispatch({ type: ACTIONS.CLEAR_CART })}
+              onClick={() =>
+                dispatch({ type: ACTIONS.CLEAR_CART, payload: [] })
+              }
               type="button"
             >
               <img
@@ -58,14 +64,16 @@ const CartDisplay = () => {
               ></img>
               <p className="bottom-btn__p">Limpiar carrito</p>
             </button>
-            <button className="bottom-btn confirm-btn" type="button">
-              <img
-                className="bottom-btn__img"
-                alt="cart-confirm"
-                src="./cart-check.svg"
-              ></img>
-              <p className="bottom-btn__p">Confirmar compra</p>
-            </button>
+            <Link className="button-link" to={`/confirm-form`}>
+              <button className="bottom-btn confirm-btn" type="button">
+                <img
+                  className="bottom-btn__img"
+                  alt="cart-confirm"
+                  src="./cart-check.svg"
+                ></img>
+                <p className="bottom-btn__p">Confirmar compra</p>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

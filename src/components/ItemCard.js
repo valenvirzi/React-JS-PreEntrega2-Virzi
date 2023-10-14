@@ -11,7 +11,7 @@ const ItemCard = ({ product }) => {
   const addToCart = () => {
     dispatch({
       type: ACTIONS.ADD_TO_CART,
-      payload: { product, counter },
+      payload: { product, quantity: counter },
     });
   };
 
@@ -54,9 +54,7 @@ const ItemCard = ({ product }) => {
                 alt="minus"
               ></img>
             </button>
-            <span className="counter-div__number">
-              {counter > 0 ? counter : setCounter(1)}
-            </span>
+            <span className="counter-div__number">{counter}</span>
             <button
               onClick={increment}
               className="cart-div__counter-btn"
