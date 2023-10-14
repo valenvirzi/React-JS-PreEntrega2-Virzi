@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import "./ItemCard.css";
 import { Link } from "react-router-dom";
+import { ACTIONS } from "../App";
+import { useCart } from "../context/CartContext";
 
 const ItemCard = ({ product }) => {
   const [counter, setCounter] = useState(1);
+  const { dispatch } = useCart;
+
+  const addToCart = () => {
+    dispatch({
+      type: ACTIONS.ADD_TO_CART,
+      payload: { product, counter },
+    });
+  };
 
   const increment = () => {
     if (counter < product.stock) {
@@ -62,7 +72,7 @@ const ItemCard = ({ product }) => {
           {/* TODO: Lograr que el botón añada el respectivo producto (y la cantidad elegida del mismo) al Array de confirmación de Carrito */}
           <button
             className="cart-div__add-btn"
-            // onClick={addToCart}
+            onClick={addToCart}
             type="button"
           >
             <img

@@ -18,6 +18,7 @@ const CartDisplay = () => {
           <hr className="row-division"></hr>
         </div>
         <ul className="CartDisplay__list">
+          {/* {cartState.cartItems} */}
           <CartItem />
           <CartItem />
         </ul>
