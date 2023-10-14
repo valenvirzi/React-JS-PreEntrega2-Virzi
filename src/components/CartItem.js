@@ -6,10 +6,10 @@ import { ACTIONS } from "../App";
 const CartItem = ({ product, quantity }) => {
   const { dispatch } = useCart();
 
-  const removeItem = (product) => {
+  const removeItem = () => {
     dispatch({
       type: ACTIONS.REMOVE_FROM_CART,
-      payload: product,
+      payload: product.id,
     });
   };
 

@@ -12,10 +12,12 @@ const cartReducer = (state, action) => {
     case ACTIONS.ADD_TO_CART:
       return { ...state, cartItems: [...state.cartItems, action.payload] };
     case ACTIONS.REMOVE_FROM_CART:
+      console.log(state.cartItems);
+      console.log(action.payload);
       return {
         ...state,
         cartItems: state.cartItems.filter(
-          (item) => item.product.id !== action.payload.id
+          (item) => item.product.id !== action.payload
         ),
       };
     case ACTIONS.CLEAR_CART:
