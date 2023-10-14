@@ -5,10 +5,10 @@ import "./ItemCard.css";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({ product }) => {
-  const { dispatch } = useCart();
   const [counter, setCounter] = useState(1);
   const [modeIndex, setModeIndex] = useState({ color: 0, storage: 0 });
   const [stock, setStock] = useState(0);
+  const { dispatch } = useCart();
 
   const addToCart = () => {
     dispatch({
