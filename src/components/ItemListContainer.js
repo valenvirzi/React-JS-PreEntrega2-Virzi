@@ -17,7 +17,7 @@ const ItemListContainer = () => {
             resolve(
               id ? products.filter((item) => item.category === id) : products
             );
-          }, 1500);
+          }, 500);
         });
         setItem(data);
       } catch (error) {
