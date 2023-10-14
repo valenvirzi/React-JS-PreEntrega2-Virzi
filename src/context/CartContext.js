@@ -6,6 +6,10 @@ const CartContext = React.createContext();
 export const useCart = () => {
   return useContext(CartContext);
 };
+// TODO: Añadir la propiedad "quantity" (sacada de "Counter") & (exportar/hacer global) la variable "quantity" del producto a agregar al carrito, sin permitir que la propiedad "quantity" supere el "stock" del objeto "producto" con el mismo "modeIndex.color" & "modeIndex.storage".
+// TODO: Hacer el formulario de Confirmación de Pedido con su respectiva validacion de campos.
+// TODO: Pasar JSON a Firestore e importarlo al proyecto.
+// TODO: Añadir notificaciones a las acciones que remuevan o eliminen objetos.
 
 const cartReducer = (state, action) => {
   const { type, payload } = action;
