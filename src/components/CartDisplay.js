@@ -7,8 +7,6 @@ import { ACTIONS } from "../App";
 const CartDisplay = () => {
   const { cartState, dispatch } = useCart();
 
-  const removeFromCart = () => {};
-
   return (
     // TODO: Hacer un condicional ternario para mostrar un mensaje si el carrito está vacío o mostrar el carrito en caso de que haya productos en él.
     <section className="CartDisplay">
@@ -29,7 +27,6 @@ const CartDisplay = () => {
               key={item.product.id}
               product={item.product}
               quantity={item.counter}
-              removeItem={removeFromCart}
             />
           ))}
         </ul>

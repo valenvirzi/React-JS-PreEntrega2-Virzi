@@ -1,7 +1,11 @@
 import React from "react";
 import "./CartItem.css";
+import { useCart } from "../context/CartContext";
 
-const CartItem = ({ product, quantity, removeItem }) => {
+const CartItem = ({ product, quantity }) => {
+  const { cartState, dispatch } = useCart();
+
+  const removeFromCart = () => {};
   return (
     <li className="CartDisplay__row">
       <div className="row__item">
@@ -45,7 +49,7 @@ const CartItem = ({ product, quantity, removeItem }) => {
         <div className="item__column">
           <button
             className="item__delete-btn"
-            onClick={removeItem}
+            onClick={() => removeFromCart}
             type="button"
           >
             <img
